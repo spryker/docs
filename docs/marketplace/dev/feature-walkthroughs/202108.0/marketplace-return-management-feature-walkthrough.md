@@ -13,8 +13,29 @@ To learn more about the feature and to find out how end users use it, see [Marke
 
 {% endinfo_block %}
 
+## Marketplace Return Management - Module dependency graph
 
+![Entity diagram](https://confluence-connect.gliffy.net/embed/image/e12bcdcb-8510-4ebf-80c3-0ee1c3054002.png?utm_medium=live&utm_source=confluence)
 
+**MerchantSalesReturn** - Provides functionality to link merchant to sales returns.
+
+**MerchantSalesReturnGui** - Provides Zed UI interface for merchant sales returns.
+
+**MerchantSalesReturnMerchantUserGui** - Provides Zed UI interface for merchant user sales return management.
+
+**MerchantSalesReturnWidget** - Provides merchant information for sales returns.
+
+**SalesReturn** - Handling order returns.
+
+**SalesReturnDataImport** - Importing data about returns.
+
+**SalesReturnPage** - Provides functionality to manage order returns.
+
+**SalesReturnSearch** - Managing Elasticsearch documents for Return entities.
+
+## Marketplace Return Management - Domain model
+
+![Entity diagram](https://confluence-connect.gliffy.net/embed/image/9f01ed2f-2be0-4e59-afa3-e56fd8390b51.png?utm_medium=live&utm_source=confluence)
 
 ## Related Developer articles
 
