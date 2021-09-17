@@ -44,6 +44,8 @@ Make sure that the following modules have been installed:
 | MerchantSalesOrderMerchantUserGui | vendor/spryker/merchant-sales-order-merchant-user-gui |
 | MerchantSalesOrderDataExport | vendor/spryker/merchant-sales-order-data-export |
 | ProductOfferSales | vendor/spryker/product-offer-sales |
+| OmsProductOfferReservation | vendor/spryker/oms-product-offer-reservation |
+| ProductOfferReservationGui | vendor/spryker/product-offer-reservation-gui |
 
 {% endinfo_block %}
 
@@ -404,6 +406,7 @@ Check your database to make sure that the following changes have been applied:
 |spy_merchant_sales_order_totals | table |created |
 |spy_sales_expense.merchant_reference | column |created |
 |spy_sales_order_item.merchant_reference | column |created  |
+|spy_oms_product_offer_reservation | table |created  |
 
 {% endinfo_block %}
 
@@ -423,6 +426,8 @@ Make sure that the following changes have been triggered in transfer objects:
 | MerchantOrderItemResponse | class | created | src/Generated/Shared/Transfer/MerchantOrderItemResponseTransfer |
 | MerchantOmsTriggerRequest | class | created | src/Generated/Shared/Transfer/MerchantOmsTriggerRequestTransfer |
 | MerchantOmsTriggerResponse | class | created | src/Generated/Shared/Transfer/MerchantOmsTriggerResponseTransfer |
+| OmsProductOfferReservationCriteria | class | created| src/Generated/Shared/Transfer/OmsProductOfferReservationCriteriaTransfer |
+| OmsProductOfferReservation | class | created| src/Generated/Shared/Transfer/OmsProductOfferReservationTransfer |
 
 {% endinfo_block %}
 
