@@ -132,6 +132,9 @@ entries:
           - title: Marketplace Promotions & Discounts feature integration
             url: /docs/marketplace/dev/feature-integration-guides/marketplace-promotions-discounts-feature-integration.html
 
+          - title: Marketplace Product Option feature integration
+            url: /docs/marketplace/dev/feature-integration-guides/marketplace-product-option-feature-integration.html
+
           - title: Marketplace Return Management feature integration
             url: /docs/marketplace/dev/feature-integration-guides/marketplace-return-management-feature-integration.html
 
