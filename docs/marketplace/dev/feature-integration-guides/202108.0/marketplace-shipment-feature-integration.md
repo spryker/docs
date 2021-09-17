@@ -25,7 +25,7 @@ To start feature integration, integrate the required features:
 Install the required modules:
 
 ```bash
-composer require spryker-feature/marketplace-shipment --update-with-dependencies
+composer require spryker-feature/marketplace-shipment:"{{page.version}}" --update-with-dependencies
 ```
 
 {% info_block warningBox "Verification" %}
@@ -97,7 +97,8 @@ Make sure that the following changes were applied in transfer objects:
 
 | TRANSFER  | TYPE  | EVENT | PATH  |
 |-|-|-|-|
-| Shipment.merchantReference | class | created | src/Generated/Shared/Transfer/ShipmentTransfer |
+| Shipment.merchantReference | property | created | src/Generated/Shared/Transfer/ShipmentTransfer |
+| MerchantShipmentCriteria | class | created | src/Generated/Shared/Transfer/MerchantShipmentCriteriaTransfer |
 
 {% endinfo_block %}
 
