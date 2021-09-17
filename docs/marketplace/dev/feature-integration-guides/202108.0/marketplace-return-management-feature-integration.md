@@ -11,6 +11,16 @@ This document describes how to integrate the Marketplace Return Management featu
 
 Follow the steps below to install the Marketplace Return Management feature core.
 
+### Prerequisites
+
+To start feature integration, integrate the required features:
+
+| NAME | VERSION | LINK |
+| --------------- | ------- | ---------- |
+| Spryker Core                 | master | [Spryker Core Feature Integration](https://documentation.spryker.com/docs/spryker-core-feature-integration) |
+| Return Management            | master | [Return Management Feature Integration](https://documentation.spryker.com/docs/return-management-feature-integration) |
+| Marketplace Order Management | master | [Marketplace Order Management Feature Integration](/docs/marketplace/dev/feature-integration-guides/{{page.version}}/marketplace-order-management-feature-integration.html) |
+
 ### 1) Install required modules using Composer
 <!--Provide one or more console commands with the exact latest version numbers of all required modules. If the Composer command contains the modules that are not related to the current feature, move them to the [prerequisites](#prerequisites).-->
 
@@ -375,6 +385,10 @@ Make sure that the following changes have been triggered in transfer objects:
 | MerchantOrderCriteria | class | created | src/Generated/Shared/Transfer/MerchantOrderCriteria |
 | ReturnCreateRequest | class | created | src/Generated/Shared/Transfer/ReturnCreateRequest |
 | Return.merchantOrders | attribute | created | src/Generated/Shared/Transfer/ReturnRequest |
+| Return.merchantSalesOrderReference| attribute | created | src/Generated/Shared/Transfer/ReturnTransfer|
+| Return.returnItems| attribute | created | src/Generated/Shared/Transfer/ReturnTransfer|
+| Return.merchantOrders| attribute | created | src/Generated/Shared/Transfer/ReturnTransfer|
+
 
 {% endinfo_block %}
 
@@ -894,7 +908,7 @@ class MerchantOmsCommunicationFactory extends SprykerMerchantOmsCommunicationFac
 
 Make sure that when you create and process return for merchant order items, it's statuses synced between state machines in the following way:
 
-| Marketplace SM	  | Default Merchant SM	 | Main Merchant SM
+| Marketplace SM     | Default Merchant SM     | Main Merchant SM
 | -------- | ------------------- | ---------- |
 | Used by Operator	 | Used by 3rd-party Merchant	 | Used by Main Merchant
 | start-return (can be started by entering in the Return Flow, it is not manually executable as a button) --> waiting for return	  | start-return (can be started by entering in the Return Flow, it is not manually executable as a button) --> waiting for return	 | start-return (can be started by entering in the Return Flow, it is not manually executable as a button) --> waiting for return
@@ -964,9 +978,8 @@ class SalesReturnConfig extends SprykerSalesReturnConfig
 
 </details>
 
-
 ### 6) Configure navigation
-Add product offers section to marketplace section of `navigation.xml`:
+Add marketplace section to `navigation.xml`:
 
 **config/Zed/navigation.xml**
 
@@ -975,7 +988,7 @@ Add product offers section to marketplace section of `navigation.xml`:
 <config>
     <sales>
         <pages>
-           <merchant-sales-return>
+            <merchant-sales-return>
                 <label>My Returns</label>
                 <title>My Returns</title>
                 <bundle>merchant-sales-return-merchant-user-gui</bundle>
@@ -1007,7 +1020,7 @@ console navigation:build-cache
 
 {% info_block warningBox "Verification" %}
 
-Make sure that, in the navigation menu of the Back Office, you can see the **Marketplace->Returns** as well as **Sales->My Returns** menu items.
+Make sure that, in the navigation menu of the Back Office, you can see the menu item **Returns** in the **Marketplace** section and **My Returns** in the **Sales** section.
 
 {% endinfo_block %}
 
@@ -1054,12 +1067,9 @@ Set up widgets as follows:
 
 ```php
 <?php
-
 namespace Pyz\Yves\ShopApplication;
-
 use SprykerShop\Yves\MerchantSalesReturnWidget\Plugin\MerchantSalesReturnCreateFormWidgetCacheKeyGeneratorStrategyPlugin;
 use SprykerShop\Yves\MerchantSalesReturnWidget\Widget\MerchantSalesReturnCreateFormWidget;
-
 class ShopApplicationDependencyProvider extends SprykerShopApplicationDependencyProvider
 {
     /**
@@ -1071,7 +1081,6 @@ class ShopApplicationDependencyProvider extends SprykerShopApplicationDependency
               MerchantSalesReturnCreateFormWidget::class,
         ];
     }
-
     /**
      * @return \SprykerShop\Yves\ShopApplicationExtension\Dependency\Plugin\WidgetCacheKeyGeneratorStrategyPluginInterface[]
      */
