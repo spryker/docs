@@ -151,6 +151,22 @@ versioned_categories:
       - glue-api-guides
       - data-import
       - data-export
+      - legacy-demoshop
+  scos:
+    user:
+      - features
+      - back-office-user-guides
+      - technology-partners
+      - shop-user-guides
+    dev:
+      - feature-walkthroughs
+      - feature-integration-guides
+      - module-migration-guides
+      - data-import
+      - data-export
+      - glue-api-guides
+      - technology-partner-integration-guides
+      - the-docker-sdk
 
 # these are defaults used for the frontmatter for these file types
 
@@ -158,6 +174,8 @@ sidebars:
   - marketplace_dev_sidebar
   - marketplace_user_sidebar
   - cloud_dev_sidebar
+  - scos_dev_sidebar
+  - scos_user_sidebar
 
 description: "Spryker documentation center."
 # the description is used in the feed.xml file
