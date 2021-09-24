@@ -10,6 +10,9 @@ entries:
           - title: System requirements
             url: /docs/marketplace/dev/setup/system-requirements.html
 
+          - title: Infrastructure requirements
+            url: /docs/marketplace/dev/setup/infrastructure-requirements.html
+
       - title: Feature walkthroughs
         nested:
           - title: Merchant
